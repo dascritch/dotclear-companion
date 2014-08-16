@@ -1,12 +1,18 @@
-(function() {
+(function(self,document) {
 	'use strict';
 
-	function body_isAdminPost(window) {
-		return window.document.body.id === "dotclear-admin";
+	var NS_addon	= 'dotclear-companion.';
+	var NS_back		= 'dotclear-companion.back.';
+
+	function isAdminPost() {
+		self.port.emit(NS_back+'isAdminPost',document.body.id === "dotclear-admin");
 	}
 
-	function findPublicPageFromEdit(window) {
-		return window.document.querySelector('div#content a.onblog_link.outgoing').href;
+	function findPublicPageFromEdit() {
+		self.port.emit(NS_back+'findPublicPageFromEdit', document.querySelector('div#content a.onblog_link.outgoing').href );
 	}
 
-})();
+	self.port.on(NS_addon+'isAdminPost', isAdminPost);
+	self.port.on(NS_addon+'findPublicPageFromEdit', findPublicPageFromEdit);
+
+})(self,document);
