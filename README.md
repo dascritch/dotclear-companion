@@ -7,10 +7,16 @@ version 0.1a
 
 TODO
 ----
-* Add button in Firefox toolbar
-* Recognise when we are in backoffice editing a post
-* Store admin pattern
-* Store post recog pattern
-* Recognise when we are on a administred dotclear post
+* 1
+  * Recognise when we are in backoffice editing a post
+  * Store admin pattern
+  * Store post recog pattern
+  * Recognise when we are on a administred dotclear post
+* 2
+  * Adding a preference window
+  * Editing preference
+* 3
+  * Adding RSS flux
+  * Having a menu with still to publsh pages
 
 
