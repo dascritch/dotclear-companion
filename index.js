@@ -1,3 +1,7 @@
+/*
+	This software is licenced under the GNU General Purpose Licence 3.0 . see http://www.gnu.org/licenses/gpl-3.0.txt
+	Copyright (C) 2014 Xavier "dascritch" Mouton-Dubosc
+ */
 (function() {
 	'use strict';
 
@@ -28,7 +32,7 @@
 			// the url pattern seems like in dotclear admin interface
 			// let's try to inject a JS, and ask it if it can see DOM patterns from dotclear
 			worker = tabs.activeTab.attach({
-				contentScriptFile	: self.data.url("admin-embed.js")
+				contentScriptFile	: self.data.url("./admin-embed.js")
 			});
 			worker.port.emit("dotclear-companion.isAdminPost");
 		}
