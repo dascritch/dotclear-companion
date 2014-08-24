@@ -27,13 +27,18 @@
 		return /\/post\.php\?id=\d+$/.test(url);
 	}
 
+	function handleCallback(event) {
+		console.log(event);
+	}
+
 	function handlePage(tab) {
 		if (url_isAdminPost(tab.url)) {
 			// the url pattern seems like in dotclear admin interface
 			// let's try to inject a JS, and ask it if it can see DOM patterns from dotclear
-			worker = tabs.activeTab.attach({
+			var worker = tabs.activeTab.attach({
 				contentScriptFile	: self.data.url("./admin-embed.js")
 			});
+			worker.onmessage = handleCallback;
 			worker.port.emit("dotclear-companion.isAdminPost");
 		}
 	}
